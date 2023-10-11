@@ -10,11 +10,11 @@ type GridProps = BoxProps & {
     griRowGap?: Responsive<string>
     gridColumns?: Responsive<CSSPropertyGridColumn>
     gridRow?: Responsive<CSSPropertyGridRow>
-    gridAutoFlow?: Responsive<CSSPropertyGridFlow>
+    gridAutoFlow?: Responsive<CSSPropertyGridAutoFlow>
     gridAutoRows?: Responsive<string>
     gridTemplateColumns?: Responsive<string>
     gridTemplateRows?: Responsive<string>
-    gridAreas?: Responsive<string>
+    gridAreas?: Responsive<CSSPropertyGridArea>
 }
 
 /**
@@ -23,11 +23,11 @@ type GridProps = BoxProps & {
  */
 const Grid = styled(Box)<GridProps>`
     ${(props) => toPropValue('grid-gap', props.gridGap, props.theme)}
-    ${(props) => toPropValue('grid-column-gap', props.gridColumuGap, props.theme)}
+    ${(props) => toPropValue('grid-column-gap', props.gridColumnGap, props.theme)}
     ${(props) => toPropValue('grid-row-gap', props.RowGap, props.theme)}
     ${(props) => toPropValue('grid-row', props.gridRow, props.theme)}
-    ${(props) => toPropValue('grid-columu', props.gridColumn, props.theme)}
-    ${(props) => toPropValue('grid-auto-flow', props.gridAutoflow, props.theme)}
+    ${(props) => toPropValue('grid-column', props.gridColumn, props.theme)}
+    ${(props) => toPropValue('grid-auto-flow', props.gridAutoFlow, props.theme)}
     ${(props) => toPropValue('grid-auto-columns', props.gridAutoColumns, props.theme)}
     ${(props) => toPropValue('grid-auto-rows', props.gridAutoRows, props.theme)}
     ${(props) => toPropValue('grid-template-columns', props.gridTemplateColumns, props.theme)}
@@ -36,7 +36,7 @@ const Grid = styled(Box)<GridProps>`
     ${(props) => toPropValue('grid-areas', props.gridAreas, props.theme)}
     `
 
-grid2Classes.defaultProps = {
+Grid.Classes.defaultProps = {
     display: 'grid',
 }
 

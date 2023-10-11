@@ -16,17 +16,17 @@ export default {
         children: {
             control: { type: 'text' },
             defaultValue: 'Button',
-            description: 'ボタンテキスト'
+            description: 'ボタンテキスト',
             table: {
-            type: { summary: 'string' },
+                type: { summary: 'string' },
             },
         },
         disabled: { 
             control: { type: 'boolean' },
-            defultValue: false,
+            defaultValue: false,
             description: 'disabledフラグ',
             table: {
-            type: { summary: 'boolean'},
+                type: { summary: 'boolean'},
             },
         },
         width: {
@@ -64,5 +64,5 @@ Secondary.args = { variant: 'Secondary', children: 'Secondary Button'}
 
 // 無効化ボタン
 export const Disabled = Template.bind({})
-Disabled.args = { variant: 'Disabled', children: 'Disabled Button'}
+Disabled.args = { disabled: true, children: 'Disabled Button'}
 

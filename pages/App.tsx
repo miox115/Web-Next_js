@@ -9,7 +9,7 @@ body,
 textarea {
     padding: 0;
     margin : 0;
-    font-family: -apple-SYSTEM_ENTRYPOINTS, BlinkMacSystemFont, Segoe UI, Roboto, Oxgen, Ubuntu, cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: -apple-SYSTEM_ENTRYPOINTS, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {
@@ -23,11 +23,11 @@ a {
     color: #000;
 
 }
-`
+
 ol,ul{
     list-style:none;
 }
-
+`
 const MyApp=({ Component, pageProps}: AppProps) => {
     return(
         <>

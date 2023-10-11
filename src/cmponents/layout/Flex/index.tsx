@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 import Box, { BoxProps } from 'components/layout/Box'
+
 import type {
     Responsive,
     CSSpropertyAlignItems,
@@ -15,17 +16,17 @@ import type {
 import { toPropValue } from 'utils/styles'
 
 type FlexProps = BoxProps & {
-    alignItems?: Responsive<CSSPropertyAlignItemes>
-    alignContent?: Responsive<CSSPropertyAlignContent>
-    justifyContent?: Responsive<CSSPropertyjustifyContent>
-    justifyItems?: Responsive<CSSPropertyjustifyItems>
-    flexWrap?: Responsive<CSSPropertyFlexWrap>
+    alignItems?: Responsive<CSSpropertyAlignItems>
+    alignContent?: Responsive<CSSpropertyAlignContent>
+    justifyContent?: Responsive<CSSpropertyJustifyContent>
+    justifyItems?: Responsive<CSSpropertyJustifyItems>
+    flexWrap?: Responsive<CSSpropertyFlexWrap>
     flexBasis?: Responsive<string>
-    flexDirection?: Responsive<CSSPropertyFlexDirection>
+    flexDirection?: Responsive<CSSpropertyFlexDirection>
     flexGrow?: Responsive<string>
     flexShrink?: Responsive<string>
-    justifySelf?: Responsive<CSSPropertyJustfySelf>
-    alignSelf?: Responsive<CSSpropertyAlignself>
+    justifySelf?: Responsive<CSSpropertyJustifySelf>
+    alignSelf?: Responsive<CSSpropertyAlignSelf>
     order?: Responsive<string>
 }
 
@@ -33,7 +34,7 @@ type FlexProps = BoxProps & {
  * Flexコンポーネント
  * flexboxの実現に利用する
  */
-const flex = styled(Box)<flexProps>`
+const Flex = styled(Box)<FlexProps>`
  ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
  ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
  ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
@@ -43,7 +44,7 @@ const flex = styled(Box)<flexProps>`
  ${(props) => toPropValue('flex-direction', props.flexDirection, props.theme)}
  ${(props) => toPropValue('flex-grow', props.flexGrow, props.theme)}
  ${(props) => toPropValue('flex-shrink', props.flexShrink, props.theme)}
- ${(props) => toPropValue('justfify-self', props.justifySelf, props.theme)}
+ ${(props) => toPropValue('justify-self', props.justifySelf, props.theme)}
  ${(props) => toPropValue('align-self', props.alignSelf, props.theme)}
  ${(props) => toPropValue('order', props.order, props.theme)}
 `

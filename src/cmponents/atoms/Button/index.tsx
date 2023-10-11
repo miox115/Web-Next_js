@@ -4,7 +4,7 @@ import { Responsive } from 'types'
 import {
     toPropValue,
     Color,
-    Fontsize,
+    FontSize,
     LetterSpacing,
     LineHeight,
     Space,
@@ -16,12 +16,12 @@ export type ButtonVariant = 'primary' | 'secondary' | 'danger'
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: ButtonVariant
     fontSize?: Responsive<FontSize>
-    fontWeight?: Responsibe<string>
+    fontWeight?: Responsive<string>
     letterSpacing?: Responsive<LetterSpacing>
     lineHeight?: Responsive<LineHeight>
     textAlign?: Responsive<string>
     color?: Responsive<Color>
-    bacckgroundColor?: Responsive<string>
+    backgroundColor?: Responsive<string>
     width?: Responsive<string>
     height?: Responsive<string>
     minWidth?: Responsive<string>
@@ -72,7 +72,7 @@ const variants = {
         border: 'none',
         pseudoClass: {
             hover: {
-                dackgroundColor: 'secondaryDark',
+                backgroundColor: 'secondaryDark',
             },
         disabled: {
             backgroundColor: 'secondary',
@@ -82,15 +82,15 @@ const variants = {
     // デンジャー
     danger: {
         color: 'white',
-        bacgroundColor: 'danger',
-        pseudoClass: [
+        backgroundColor: 'danger',
+        pseudoClass: {
             hover: {
                 backgroundColor: 'dangerDark',
             },
             disabled: {
-                backgroundoColor: 'danger',
+                backgroundColor: 'danger',
             },
-        ],
+        },
     },
 }
 
@@ -106,10 +106,10 @@ const Button = styled.button<ButtonProps>`
     if (variant && variants[variant]) {
         const styles = []
         !color &&
-        styles.push(toPropValue('colr', variants[variant].color, theme))
+        styles.push(toPropValue('color', variants[variant].color, theme))
         !backgroundColor &&
          styles.push(
-            toOropValue(
+            toPropValue(
                 'background-color',
                 variants[variant].backgroundColor,
                 theme,

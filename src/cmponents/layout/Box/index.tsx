@@ -18,7 +18,7 @@ export type BoxProps = {
     marginTop?: Responsive<Space>
     marginRight?: Responsive<Space>
     marginBottom?: Responsive<Space>
-    marginleft?: Responsive<Space>
+    marginLeft?: Responsive<Space>
     Padding?: Responsive<Space>
     PaddingTop?: Responsive<Space>
     PaddingRight?: Responsive<Space>

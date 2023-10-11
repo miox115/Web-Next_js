@@ -6,11 +6,11 @@ import { ResponsiveProp, Responsive } from 'types'
 // Themeの型
 export type AppTheme = typeof theme
 
-type SpaceThemeKeys = keyof typeof theme.Space
-type ColorThemeKeys = keyof typeof theme.Colors
+type SpaceThemeKeys = keyof typeof theme.space
+type ColorThemeKeys = keyof typeof theme.colors
 type FontSizeThemeKeys = keyof typeof theme.fontSizes
 type LetterSpacingThemeKeys = keyof typeof theme.letterSpacings
-type LineHeightThemeKeys = keyof typeof theme.LineHeight
+type LineHeightThemeKeys = keyof typeof theme.lineHeights
 
 // 各themeのキーの型
 export type Space = SpaceThemeKeys | (string & {})
@@ -32,7 +32,7 @@ const BREAKPOINTS: { [key: string]: string} ={
  * @param propKey CSSプロパティ
  * @param prop Responsive型
  * @param theme AppTheme
- * @returns CSSプロパティとその値 (ex. backgrond-color: white:)
+ * @returns CSSプロパティとその値 (ex. background-color: white:)
  */
 export function toPropValue<T>(
     propKey: string,
@@ -46,7 +46,7 @@ export function toPropValue<T>(
         for (const responsiveKey in prop){
          if(isResponsivePropType(prop)){
             //デフォルトのスタイル
-            result.pussh(
+            result.push(
                 `${propKey}: ${toThemeValueIfNeeded(
                     propKey,
                     prop[responsiveKey],
@@ -57,7 +57,7 @@ export function toPropValue<T>(
             responsiveKey === 'sm' ||
             responsiveKey === 'md' ||
             responsiveKey === 'lg' ||
-            responsiveKey === 'xl' ||
+            responsiveKey === 'xl'
         ) {
             // メディアクエリでのスタイル
             const breakpoint = BREAKPOINTS[responsiveKey]
@@ -69,13 +69,13 @@ export function toPropValue<T>(
             result.push(`@media screen and (min-width: $[breakpoint]) {${style}}`)
         }
     }
-    return ResetTvOutlined.join('\n')
+    return result.join('\n')
  }
  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`
 }
 
 const SPACE_KEYS = new Set ([
-    'margin'
+    'margin',
     'margin-top',
     'margin-left',
     'margin-bottom',
@@ -99,7 +99,7 @@ const LINE_HEIGHT_KEYS = new Set(['line-height'])
  * @param theme App Theme
  * @returns CSSプロパティの値
  */
-function to ThemeValueIfNeeded<T>(propKey: string, value: Text, theme?: AppTheme) {
+function toThemeValueIfNeeded<T>(propKey: string, value: Text, theme?: AppTheme) {
     if (
         theme &&
         theme.space &&
@@ -134,12 +134,12 @@ function to ThemeValueIfNeeded<T>(propKey: string, value: Text, theme?: AppTheme
         LINE_HEIGHT_KEYS.has(propKey) &&
         isLineHeightThemeKeys(value, theme)
     ) {
-        return theme.LineHeightThemeKeys[value]
+        return theme.lineHeights[value]
     }
 return value
 }
 
-function isResponsiveProptype<T>(prop: any): prop is ResponsiveProp</T> {
+function isResponsivePropType<T>(prop: any): prop is ResponsiveProp<T> {
     return (
         prop &&
         (prop.base !== undefined ||
@@ -150,7 +150,7 @@ function isResponsiveProptype<T>(prop: any): prop is ResponsiveProp</T> {
     )
 }
 
-function isSpaceThemeKeys(prop: any, theme: AppTheme): prop is spaceThemeKeys {
+function isSpaceThemeKeys(prop: any, theme: AppTheme): prop is SpaceThemeKeys {
     return Object.keys(theme.space).filter((key) => key == prop).length > 0
 }
 
@@ -158,10 +158,10 @@ function isColorThemeKeys(prop: any, theme: AppTheme): prop is ColorThemeKeys {
     return Object.keys(theme.space).filter((key) => key == prop).length > 0
 }
 
-function isFontsizeThemeKeys(
+function isFontSizeThemeKeys(
     prop: any,
     theme: AppTheme,
-): prop is FontSizeThemeKes{
+): prop is FontSizeThemeKeys{
     return Object.keys(theme.fontSizes).filter((key) => key == prop).length > 0
 }
 
@@ -170,7 +170,7 @@ function isLetterSpacingThemeKeys(
     theme: AppTheme,
 ): prop is LetterSpacingThemeKeys{
     return (
-        Object.keys(stheme.letterSpacings).filter((key) => key == prop).length > 0
+        Object.keys(theme.letterSpacings).filter((key) => key == prop).length > 0
     )
 }
 
@@ -178,5 +178,5 @@ function isLineHeightThemeKeys(
     prop: any,
     theme: AppTheme,
 ): prop is LineHeightThemeKeys{
-    return Object.keys(theme.lineHights).filter((key) => key == prop).length > 0
+    return Object.keys(theme.lineHeights).filter((key) => key == prop).length > 0
 }

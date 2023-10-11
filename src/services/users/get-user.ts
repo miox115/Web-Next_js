@@ -21,7 +21,6 @@ const getUser = async (
     /**
      * ユーザーAPI
      * サンプルレスポンス
-     */
     {
         "id": "1",
         "username": "taketo",

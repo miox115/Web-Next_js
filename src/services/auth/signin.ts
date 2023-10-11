@@ -23,7 +23,7 @@ export type SigninParams = {
  */
 const signin = async(
     context: apiContext,
-    params: SigninParams,
+    params: signinParams,
 ): Promise<User> => {
  return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/auth/signin`,

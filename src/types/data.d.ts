@@ -16,7 +16,7 @@ export type Responsive<T> = T |ResponsiveProp<T>
 /**
  * Flex
  */
-type SelfPositon = 
+type SelfPosition = 
  | 'center'
  | 'end'
  | 'flex-end'
@@ -28,7 +28,7 @@ type ContentPosition = 'center' | 'end' | 'flex-end' | 'flex-start'| 'start'
 type ContentDistribution = 
  | 'space-around'
  | 'space-between'
- | 'spece-evenly'
+ | 'space-evenly'
  | 'stretch'
 
  type CSSPropertyGlobals = 
@@ -38,7 +38,7 @@ type ContentDistribution =
  | 'revert'
  | 'unset'
 
-  export type CSSPropertyAlignItems
+  export type CSSPropertyAlignItems =
  | CSSPropertyGlobals
  | SelfPosition
  | 'baseline'
@@ -125,7 +125,7 @@ export type CSSPropertyGridColumn =
 
  export type CSSPropertyGridRow = CSSPropertyGlobals | GridLine | (string & {})
 
- expor type CSSPropertyGridAutoFlow =
+ export type CSSPropertyGridAutoFlow =
  | CSSPropertyGlobals
  | 'column'
  | 'dense'
