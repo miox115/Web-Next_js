@@ -9,7 +9,7 @@
     "lint": "next lint --dir src",
     "format": "next lint --fix --dir src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "build-storybook",
     "test": "jest"
   },
   "dependencies": {
@@ -37,7 +37,8 @@
     "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^7.4.6",
-    "@storybook/nextjs": "^7.4.6",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^7.4.6",
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/jest-dom": "^6.1.3",

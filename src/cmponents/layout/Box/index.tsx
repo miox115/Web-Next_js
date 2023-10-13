@@ -7,13 +7,13 @@ import { toPropValue, Color, Space} from 'utils/styles'
 export type BoxProps = {
     color?: Responsive<Color>
     backgroundColor?: Responsive<Color>
-    width?: Responsive<String>
-    height?: Responsive<String>
-    minWidth?: Responsive<String>
-    minHeight?: Responsive<String>
-    display?: Responsive<String>
-    border?: Responsive<String>
-    overflow?: Responsive<String>
+    width?: Responsive<string>
+    height?: Responsive<string>
+    minWidth?: Responsive<string>
+    minHeight?: Responsive<string>
+    display?: Responsive<string>
+    border?: Responsive<string>
+    overflow?: Responsive<string>
     margin?: Responsive<Space>
     marginTop?: Responsive<Space>
     marginRight?: Responsive<Space>

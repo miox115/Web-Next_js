@@ -2,10 +2,10 @@ import type { ApiContext, User } from 'types'
 import { fetcher } from 'utils'
 
 export type GetUserParams = {
-    /**
-     * ユーザーID
-     */
-    id: number
+  /**
+   * ユーザーID
+   */
+  id: number
 }
 
 /**
@@ -15,10 +15,10 @@ export type GetUserParams = {
  * @returns ユーザー
  */
 const getUser = async (
-    context: ApiContext,
-    { id }: GetUserParams,
+  context: ApiContext,
+  { id }: GetUserParams,
 ): Promise<User> => {
-    /**
+  /**
      * ユーザーAPI
      * サンプルレスポンス
     {
@@ -31,15 +31,15 @@ const getUser = async (
     }
 
     */
-   return await fetcher(
-    `${context.apiRootUrl.replace(/\/$/g,'')}/users/${id}`,
+  return await fetcher(
+    `${context.apiRootUrl.replace(/\/$/g, '')}/users/${id}`,
     {
-        headers:{
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
+      headers: {
+        accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
     },
-   )
+  )
 }
 
 export default getUser

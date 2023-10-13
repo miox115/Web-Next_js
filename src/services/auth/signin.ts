@@ -4,15 +4,15 @@ import { ApiContext, User } from 'types'
 import { fetcher } from 'utils'
 
 export type SigninParams = {
-    /**
-     *ユーザー名
-     *サンプルユーザーのユーザー名は"user"
-     */
-    username: string
-    /**
-     * パスワード
-     * サンプルユーザーのパスワードは”password”
-     */
+  /**
+   *ユーザー名
+   *サンプルユーザーのユーザー名は"user"
+   */
+  username: string
+  /**
+   * パスワード
+   * サンプルユーザーのパスワードは”password”
+   */
 }
 
 /**
@@ -21,20 +21,20 @@ export type SigninParams = {
  * @param params パラメータ
  * @returns ログインユーザー
  */
-const signin = async(
-    context: apiContext,
-    params: signinParams,
+const signin = async (
+  context: apiContext,
+  params: signinParams,
 ): Promise<User> => {
- return await fetcher(
+  return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/auth/signin`,
     {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-        },
-        body: JSON.stringify(params),
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(params),
     },
- )   
+  )
 }
 
 export default signin
